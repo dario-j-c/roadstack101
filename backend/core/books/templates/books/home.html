@@ -1,0 +1,42 @@
+{% extends 'books/base.html' %}
+
+{% block title %}Home - BookDB{% endblock %}
+
+{% block content %}
+<h1>Welcome to BookDB</h1>
+<p>A simple Django REST API demonstrating CRUD operations with nested relationships.</p>
+
+<div class="info-section">
+    <h3>CRUD Operations</h3>
+    <ul>
+        <li><strong>CREATE:</strong> Add new authors and books via <code>/admin/</code> or REST API</li>
+        <li><strong>READ:</strong> View data on this site, API, or admin interface</li>
+        <li><strong>UPDATE:</strong> Edit authors and books via <code>/admin/</code> or REST API</li>
+        <li><strong>DELETE:</strong> Remove data via <code>/admin/</code> or REST API</li>
+    </ul>
+</div>
+
+<div class="info-section">
+    <h3>Access Points</h3>
+    <ul>
+        <li><strong>Web Views:</strong> Browse authors and books (read-only display)</li>
+        <li><strong>REST API:</strong> Full CRUD at <code>/home/api/authors/</code> and <code>/home/api/books/</code></li>
+        <li><strong>Admin Panel:</strong> Full CRUD with UI at <code>/admin/</code></li>
+        <li><strong>API Docs:</strong> Interactive Swagger UI at <code>/swagger/</code></li>
+    </ul>
+</div>
+
+<div class="home-links">
+    <div class="card">
+        <h2>Authors</h2>
+        <p>View authors with their complete list of books displayed in a nested structure.</p>
+        <a href="{% url 'author_list' %}">View Authors</a>
+    </div>
+
+    <div class="card">
+        <h2>Books</h2>
+        <p>View books with full author details including country and birth year.</p>
+        <a href="{% url 'book_list' %}">View Books</a>
+    </div>
+</div>
+{% endblock %}

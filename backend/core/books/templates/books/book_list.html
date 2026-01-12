@@ -1,0 +1,43 @@
+{% extends 'books/base.html' %}
+
+{% block title %}Books - BookDB{% endblock %}
+
+{% block content %}
+<h1>Books</h1>
+<p>Total Books: {{ books.count }}</p>
+
+<table>
+    <thead>
+        <tr>
+            <th>Title</th>
+            <th>Author Details</th>
+            <th>Published</th>
+            <th>ISBN</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for book in books %}
+        <tr>
+            <td><strong>{{ book.title }}</strong></td>
+            <td>
+                <div class="author-detail">
+                    <strong>{{ book.author.name }}</strong>
+                    {% if book.author.country %}
+                    <br><small>{{ book.author.country }}</small>
+                    {% endif %}
+                    {% if book.author.birth_date %}
+                    <br><small>Born: {{ book.author.birth_date|date:"Y" }}</small>
+                    {% endif %}
+                </div>
+            </td>
+            <td>{{ book.published_date|date:"Y-m-d" }}</td>
+            <td><code>{{ book.isbn }}</code></td>
+        </tr>
+        {% empty %}
+        <tr>
+            <td colspan="4" style="text-align: center;">No books found. Add some via the API or admin panel.</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% endblock %}

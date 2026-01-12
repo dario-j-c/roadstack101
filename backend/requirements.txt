@@ -40,12 +40,13 @@ djangorestframework>=3.16,<4.0
 # ----------------------------------------------------------------------------
 # API DOCUMENTATION
 # ----------------------------------------------------------------------------
-# drf-spectacular: Generate OpenAPI 3.0 schema from DRF code
-# Link: https://drf-spectacular.readthedocs.io/en/latest/readme.html
+# drf-yasg: Yet another Swagger generator for DRF
+# Link: https://drf-yasg.readthedocs.io/en/stable/
 # - Auto-generates API documentation from your code
 # - Provides Swagger UI and ReDoc interfaces
+# - Uses OpenAPI 2.0 specification
 # PER.NOTE (DC): Unneeded if using django-ninja
-drf-spectacular>=0.29,<1.0
+drf-yasg>=1.21,<2.0
 
 # ----------------------------------------------------------------------------
 # CORS (Cross-Origin Resource Sharing)
@@ -56,6 +57,16 @@ drf-spectacular>=0.29,<1.0
 # - In development: frontend (localhost:3000) → backend (localhost:8000)
 # - Configure in settings.py which origins are allowed
 django-cors-headers>=4.9,<5.0
+
+# ----------------------------------------------------------------------------
+# FILTERING
+# ----------------------------------------------------------------------------
+# django-filter: Reusable Django app for filtering querysets dynamically
+# Link: https://django-filter.readthedocs.io/en/stable/
+# - Integrates with DRF to add filtering to API endpoints
+# - Provides FilterSet classes for complex filtering logic
+# - Example: /api/products?category=electronics&price__lt=100
+django-filter>=24.3,<25.0
 
 # ----------------------------------------------------------------------------
 # OPTIONAL BUT RECOMMENDED

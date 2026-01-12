@@ -1,0 +1,48 @@
+{% extends 'books/base.html' %}
+
+{% block title %}Authors - BookDB{% endblock %}
+
+{% block content %}
+<h1>Authors</h1>
+<p>Total Authors: {{ authors.count }}</p>
+
+{% for author in authors %}
+<div class="author-card">
+    <div class="author-header">
+        <h2>{{ author.name }}</h2>
+        <span class="author-meta">
+            {% if author.country %}{{ author.country }}{% endif %}
+            {% if author.birth_date %} | Born: {{ author.birth_date|date:"Y" }}{% endif %}
+        </span>
+    </div>
+
+    <div class="books-section">
+        <h3>Books ({{ author.books.count }})</h3>
+        {% if author.books.all %}
+        <table class="nested-table">
+            <thead>
+                <tr>
+                    <th>Title</th>
+                    <th>Published</th>
+                    <th>ISBN</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for book in author.books.all %}
+                <tr>
+                    <td>{{ book.title }}</td>
+                    <td>{{ book.published_date|date:"Y-m-d" }}</td>
+                    <td>{{ book.isbn }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        {% else %}
+        <p class="no-data">No books by this author yet.</p>
+        {% endif %}
+    </div>
+</div>
+{% empty %}
+<p class="no-data">No authors found. Add some via the API or admin panel.</p>
+{% endfor %}
+{% endblock %}
