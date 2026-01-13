@@ -56,7 +56,7 @@ RUN apt-get update && apt-get install -y \
 # Set the working directory inside the container
 # All subsequent commands will run from this directory
 # This is where we'll copy our application code
-WORKDIR /app
+WORKDIR /app/core
 
 # ----------------------------------------------------------------------------
 # PYTHON DEPENDENCIES
