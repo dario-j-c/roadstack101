@@ -17,6 +17,7 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include, re_path
 from rest_framework import permissions
+from rest_framework.authtoken import views as authtoken_views
 from drf_yasg.views import get_schema_view
 from drf_yasg import openapi
 
@@ -38,9 +39,10 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('home/', include('books.urls')),
 
-    # API documentation
+    # Authentication
     path('api-auth/', include('rest_framework.urls')),
-    
+    path('api/token-auth/', authtoken_views.obtain_auth_token, name='api_token_auth'),
+
     # Swagger documentation URLs
     re_path(r'^swagger(?P<format>\.json|\.yaml)$', schema_view.without_ui(cache_timeout=0), name='schema-json'),
     path('swagger/', schema_view.with_ui('swagger', cache_timeout=0), name='schema-swagger-ui'),

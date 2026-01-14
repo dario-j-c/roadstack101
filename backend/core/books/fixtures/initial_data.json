@@ -1,0 +1,79 @@
+[
+  {
+    "model": "books.author",
+    "pk": 1,
+    "fields": {
+      "name": "J.K. Rowling",
+      "birth_date": "1965-07-31",
+      "country": "United Kingdom"
+    }
+  },
+  {
+    "model": "books.author",
+    "pk": 2,
+    "fields": {
+      "name": "George Orwell",
+      "birth_date": "1903-06-25",
+      "country": "United Kingdom"
+    }
+  },
+  {
+    "model": "books.author",
+    "pk": 3,
+    "fields": {
+      "name": "Harper Lee",
+      "birth_date": "1926-04-28",
+      "country": "United States"
+    }
+  },
+  {
+    "model": "books.book",
+    "pk": 1,
+    "fields": {
+      "title": "Harry Potter and the Philosopher's Stone",
+      "author": 1,
+      "published_date": "1997-06-26",
+      "isbn": "9780747532699"
+    }
+  },
+  {
+    "model": "books.book",
+    "pk": 2,
+    "fields": {
+      "title": "Harry Potter and the Chamber of Secrets",
+      "author": 1,
+      "published_date": "1998-07-02",
+      "isbn": "9780747538493"
+    }
+  },
+  {
+    "model": "books.book",
+    "pk": 3,
+    "fields": {
+      "title": "1984",
+      "author": 2,
+      "published_date": "1949-06-08",
+      "isbn": "9780451524935"
+    }
+  },
+  {
+    "model": "books.book",
+    "pk": 4,
+    "fields": {
+      "title": "Animal Farm",
+      "author": 2,
+      "published_date": "1945-08-17",
+      "isbn": "9780451526342"
+    }
+  },
+  {
+    "model": "books.book",
+    "pk": 5,
+    "fields": {
+      "title": "To Kill a Mockingbird",
+      "author": 3,
+      "published_date": "1960-07-11",
+      "isbn": "9780061120084"
+    }
+  }
+]
