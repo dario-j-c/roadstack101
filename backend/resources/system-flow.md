@@ -14,8 +14,8 @@ flowchart TD
     API --> Auth{Authenticated?}
     Admin --> DB
 
-    Auth -->|Yes or GET| Serializer[Serializers]
-    Auth -->|No + Write| Error[401 Error]
+    Auth -->|Yes| Serializer[Serializers]
+    Auth -->|No| Error[401 Error]
 
     Serializer --> DB
 

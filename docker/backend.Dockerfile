@@ -25,7 +25,7 @@ FROM python:3.13-slim
 # ----------------------------------------------------------------------------
 # Python-specific environment variables to optimize container behavior
 
-# PER.NOTE (DC): I've read conflicting adivce on the following steps, but they don't hurt to have
+# PER.NOTE (DC): I've read conflicting advice on the following steps, but they don't hurt to have
 # Prevents Python from writing .pyc files (compiled bytecode)
 # - .pyc files are useful for performance but not needed in containers
 # - We rebuild containers frequently, so compilation cache isn't beneficial
@@ -110,5 +110,5 @@ EXPOSE 8000
 # Note: Only the last CMD is executed, so we use shell form to chain commands
 CMD python manage.py makemigrations && \
     python manage.py migrate && \
-    python manage.py fetch_data && \
+    # python manage.py loaddata initial_data && \
     python manage.py runserver 0.0.0.0:8000
