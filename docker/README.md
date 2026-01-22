@@ -683,7 +683,7 @@ This is a reminder of the two development approaches you can use.
 
    - [Official Docker Documentation](https://docs.docker.com/)
    - [Docker Compose Documentation](https://docs.docker.com/compose/)
-   - [Docler CLI cheat sheet](https://docs.docker.com/get-started/docker_cheatsheet.pdf)
+   - [Docker CLI cheat sheet](https://docs.docker.com/get-started/docker_cheatsheet.pdf)
 
 ---
 
