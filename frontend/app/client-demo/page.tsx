@@ -46,7 +46,7 @@ export default function ClientDemo() {
         </ul>
         <p className="text-sm text-gray-600">Fetched on the client. User data and the Authorization header are visible in the browser network tab.</p>
       </div>
-      <Button/>
+     
     </div>
   );
 }

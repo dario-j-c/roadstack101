@@ -6,7 +6,7 @@ const authToken = process.env.NEXT_PUBLIC_DUMMY_KEY || "demo-key";
 const auth = `Token ${authToken}`;
 
 async function getAuthor(authorId: string) {
-  const res = await fetch(`http://localhost:8000/home/api/authors/${authorId}/`, {
+  const res = await fetch(`http://backend:8000/home/api/authors/${authorId}/`, {
     cache: "no-store",
     headers: { Authorization: auth },
   });
@@ -17,7 +17,7 @@ async function updateAuthor(formData: FormData) {
   "use server";
   const name = formData.get("name");
   const authorId = formData.get("authorId") as string;
-  await fetch(`http://localhost:8000/home/api/authors/${authorId}/`, {
+  await fetch(`http://backend:8000/home/api/authors/${authorId}/`, {
     method: "PATCH",
     headers: {
       "Content-Type": "application/json",
@@ -33,7 +33,7 @@ export default async function Page() {
   const defaultAuthorId = "3";
 
   const author = await getAuthor(defaultAuthorId);
-  
+
   return (
     <div className="min-h-screen flex items-center justify-center">
       <Card className="w-96 p-8">

@@ -1,5 +1,5 @@
 export default async function ServerDemo() {
-  const res = await fetch("http://localhost:8000/home/api/books/", {
+  const res = await fetch("http://backend:8000/home/api/books/", {
     cache: "no-store",
     headers: {
       Authorization: `Token ${process.env.NEXT_PUBLIC_DUMMY_KEY}`,

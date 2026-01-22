@@ -37,11 +37,13 @@ WORKDIR /app
 # Learners will install Next.js and shadcn themselves
 #
 COPY ./frontend/package*.json ./
-RUN npm ci
+
 
 # ----------------------------------------------------------------------------
 COPY ./frontend .
 
+
+RUN npm install
 # ----------------------------------------------------------------------------
 # PORT EXPOSURE
 # ----------------------------------------------------------------------------

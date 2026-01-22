@@ -2,7 +2,7 @@
 import { useEffect, useState } from "react";
 import { Card } from "@/components/ui/card";
 
-type User = { name: string };
+
 
 export default function ClientActionDemo() {
   const [name, setName] = useState("");
