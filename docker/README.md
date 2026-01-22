@@ -31,9 +31,10 @@ This diagram shows the key files we will be discussing. It provides a map of the
 ```
 roadstack101/
 ├── backend/                    # Django backend
+│   └── core/                   # Code
 │   └── requirements.txt
 ├── frontend/                   # Next.js frontend
-│   └── package.json
+│   └── package.json [TBD]
 ├── docker/
 │   ├── backend.Dockerfile
 │   ├── frontend.Dockerfile
@@ -157,11 +158,6 @@ This is useful for:
 - Running multiple instances without port conflicts
 - CI/CD environments where port availability varies
 
-```bash
-# Cleanup the quick-test container
-docker stop quick-test && docker rm quick-test
-```
-
 **Cleanup:**
 ```bash
 # See running containers (also visible in Docker Desktop's "Containers" tab)
@@ -176,6 +172,8 @@ docker ps -a
 
 # Remove the stopped container
 docker rm my-web
+
+# We can clenup quick-test via the GUI
 ```
 
 ### The Problem
@@ -685,6 +683,7 @@ This is a reminder of the two development approaches you can use.
 
    - [Official Docker Documentation](https://docs.docker.com/)
    - [Docker Compose Documentation](https://docs.docker.com/compose/)
+   - [Docker CLI cheat sheet](https://docs.docker.com/get-started/docker_cheatsheet.pdf)
 
 ---
 
