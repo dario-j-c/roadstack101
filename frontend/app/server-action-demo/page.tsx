@@ -26,6 +26,10 @@ async function updateAuthor(formData: FormData) {
     },
     body: JSON.stringify({ name }),
   });
+  
+// When called (usually inside a Server Action), it ensures that the next time 
+// a user visits "/server-action-demo", they see the most up-to-date data 
+// instead of a stale, cached version.
   revalidatePath("/server-action-demo");
 }
 
