@@ -6,6 +6,7 @@ import { Card } from "@/components/ui/card";
 
 export default function ClientActionDemo() {
   const [name, setName] = useState("");
+  const [author, setAuthor] = useState("");
   const [authorId, setAuthorId] = useState("3");
   const authToken = process.env.NEXT_PUBLIC_DUMMY_KEY || "demo-key";
   const auth = `Token ${authToken}`;
@@ -16,12 +17,14 @@ export default function ClientActionDemo() {
       headers: { Authorization: auth },
     })
       .then((res) => res.json())
+      .then((data) => setAuthor(data?.name || ""))
+      .catch((err) => console.error(err));
   }, [authorId]);
 
   async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
     if (!authorId) return;
-    await fetch(`http://localhost:8000/home/api/authors/${authorId}/`, {
+    const resp = await fetch(`http://localhost:8000/home/api/authors/${authorId}/`, {
       method: "PATCH",
       headers: {
         "Content-Type": "application/json",
@@ -29,10 +32,9 @@ export default function ClientActionDemo() {
       },
       body: JSON.stringify({ name }),
     });
+    const updated = await resp.json();
     setName("");
-    const updated = await fetch(`http://localhost:8000/home/api/authors/${authorId}/`, {
-      headers: { Authorization: auth },
-    }).then(res => res.json());
+    setAuthor(updated?.name || name);
   }
 
     return (
@@ -40,6 +42,8 @@ export default function ClientActionDemo() {
         <Card className="w-96 p-8">
           <h1 className="text-center text-xl font-bold mb-4">Client Action Demo</h1>
           <div className="mb-4">
+            <h1>{author}</h1>
+
             <label className="flex items-center gap-2">
               Author ID:
               <input
