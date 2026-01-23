@@ -42,7 +42,7 @@ export default function ClientActionDemo() {
         <Card className="w-96 p-8">
           <h1 className="text-center text-xl font-bold mb-4">Client Action Demo</h1>
           <div className="mb-4">
-            <h1>{author}</h1>
+            <div className="mb-4">Author: {author}</div>
 
             <label className="flex items-center gap-2">
               Author ID:

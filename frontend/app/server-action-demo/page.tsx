@@ -1,5 +1,6 @@
 import { revalidatePath } from "next/cache";
 import { Card } from "@/components/ui/card";
+import ClientUpdater from "./ClientUpdater";
 
 
 const authToken = process.env.NEXT_PUBLIC_DUMMY_KEY || "demo-key";
@@ -47,6 +48,8 @@ export default async function Page() {
           <input name="name" placeholder="New name" className="border rounded px-2 py-1" />
           <button type="submit" className="bg-blue-600 text-white rounded px-4 py-2 hover:bg-blue-700">Update Name</button>
         </form>
+
+        <ClientUpdater defaultAuthorId={defaultAuthorId} />
       </Card>
     </div>
   );
