@@ -36,30 +36,14 @@ WORKDIR /app
 # For a bare minimum setup, we just set up the Node environment
 # Learners will install Next.js and shadcn themselves
 #
-# WHEN Learners HAVE package.json:
-# They should uncomment the following steps:
-#
-# 1. Copy package files first (for Docker layer caching)
-# COPY ./frontend/package*.json ./
-#
-# 2. Install dependencies
-# RUN npm install
-# or for faster installs: RUN npm ci (uses package-lock.json exactly)
-#
-# WHY COPY package.json SEPARATELY?
-# - Docker caches each step as a "layer"
-# - If package.json hasn't changed, Docker reuses the cached npm install
-# - This makes rebuilds MUCH faster when you only change code files
-# - Only when you add/remove packages will npm install run again
+COPY ./frontend/package*.json ./
+
 
 # ----------------------------------------------------------------------------
-# APPLICATION CODE
-# ----------------------------------------------------------------------------
-# Copy the frontend application code into the container
-# This comes AFTER npm install (if used) to leverage layer caching
-
 COPY ./frontend .
 
+
+RUN npm install
 # ----------------------------------------------------------------------------
 # PORT EXPOSURE
 # ----------------------------------------------------------------------------
@@ -84,8 +68,4 @@ EXPOSE 3000
 # Learners may need to update their next.config.js or use:
 # CMD ["npm", "run", "dev", "--", "-H", "0.0.0.0"]
 
-# Placeholder: Keep container alive for Learners to set up Next.js
-CMD ["tail", "-f", "/dev/null"]
-
-# Once Next.js is set up, use this instead:
-# CMD ["npm", "run", "dev"]
+CMD ["npm", "run", "dev", "--", "-H", "0.0.0.0"]
