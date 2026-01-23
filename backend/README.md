@@ -619,9 +619,6 @@ REST_FRAMEWORK = {
         'rest_framework.authentication.TokenAuthentication',
         'rest_framework.authentication.SessionAuthentication',
     ],
-    'DEFAULT_PERMISSION_CLASSES': [
-        'rest_framework.permissions.IsAuthenticatedOrReadOnly',
-    ],
 }
 ```
 
@@ -677,7 +674,6 @@ class AuthorViewSet(viewsets.ModelViewSet):
     # Override default permissions
     # permission_classes = [permissions.AllowAny]  # No auth required
     # permission_classes = [permissions.IsAuthenticated]  # Auth for everything
-    # permission_classes = [permissions.IsAuthenticatedOrReadOnly]  # Default
 ```
 
 ### Token Management
